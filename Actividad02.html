@@ -6,24 +6,40 @@
         <title>Práctica (para la clase)</title>
         <style>
             *{ margin:0; padding:0; }
-            body{ text-align: center; font-family: Helvetica, Arial, sans-serif; }
-            h1 { padding:1vh 15vw; }
-            h2, p{ padding:.5vh 0; }
+            body{ text-align: center; 
+                font-family: nunito, sans-serif; 
+                background-color: #e6c9ea; 
+                color: #1b2854; }
+            h1 { padding:1vh 15vw; 
+                font-family: kanit, bold; 
+                color: #1b2854; 
+                font-size: 48px}
+
+            h2, { padding:.5vh 0; 
+                font-family: kanit; 
+                font-weight: 500; 
+                color: #1b2854; font-size: 32px}
+
+            p{ padding:.5vh 0; 
+                font-family: kanit; 
+                font-weight: 400; 
+                color: #1b2854; 
+                font-size: 21px}
             header, article, footer{ padding:5vh 0; }
             header, article{ border-bottom:1px dotted black; }
             div{ padding:2vh 6vw; }
+
         </style>
     </head>
     <body>
         <header>
             <h1>Emigrantes de Chile desde 1990 </h1>
-            
 
         </header>
         <main>
             <article>
 
-                <h2>Aumento del número de emigrantes de Chile desde 10
+                <h2>Aumento del número de emigrantes de Chile desde 1990
                 </h2>
                 <p> Fuente: Expansion, datosmacro <a href="https://datosmacro.expansion.com/demografia/migracion/emigracion/chile" target="_blank">sitio web</a></p>
                 <div>
@@ -37,7 +53,10 @@
                 <h2>Principales destinos de los emigrantes chilenos</h2>
                 <p>fuente:<a href="https://datosmacro.expansion.com/demografia/migracion/emigracion/chile" target="_blank">datosmacro.expansion.com</a></p>
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" id="barras"><!--aquí dentro van los grupos con rectangulo y textos--></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 200" id="barras">
+                        <!--aquí dentro van los grupos con rectangulo y textos-->
+                            
+                    </svg>
                 </div> 
             </article>
         </main>
@@ -67,7 +86,7 @@
 
             lineal.censados.forEach((d, i) => {
                 coordenadas += ((i*88)+7) + "," + (d*0.0015-820) + " ";
-                momentos += `<text x="${i*88}" y="305" font-size="6">${lineal.censos[i]}</text> `;
+                momentos += `<text x="${i*88}" y="305" font-size="10" font-weight="bold" fill="#0c1843">${lineal.censos[i]}</text> `;
 
             })
 
@@ -75,7 +94,7 @@
 
             console.log(momentos);
 
-            graficaLineas.innerHTML += `<polyline points="${coordenadas}" fill="none" stroke="black" stroke-width="0.5"/>`;
+            graficaLineas.innerHTML += `<polyline points="${coordenadas}" fill="none" stroke="#1b2854" stroke-width="1"/>`;
 
             document.querySelector("#years").innerHTML += momentos;
 
@@ -97,10 +116,10 @@
             const graficaBarras = document.querySelector("#barras");
 
             barras.forEach((d, i) => {
-                graficaBarras.innerHTML += `<g transform="translate(0,${i*15})">
-                    <rect x="0" y="0" width="${d.numero/500}" height="10" />
-                    <text x="3" y="7" fill="white" font-size="5">${d.region}</text>
-                    <text x="${(d.numero/500)+3}" y="7" font-size="6">${new Intl.NumberFormat("es-ES").format(d.numero)} emigrantes</text>
+                graficaBarras.innerHTML += `<g transform="translate(0,${i*25})">
+                    <rect x="0" y="0" width="${d.numero/500}" height="20" />
+                    <text x="3" y="12" fill="#e6c9ea" font-size="8" font-weight="bold" >${d.region}</text>
+                    <text x="${(d.numero/500)+3}" y="13" fill="#1b2854"  font-size="9" font-weight="bold">${new Intl.NumberFormat("es-ES").format(d.numero)} emigrantes chilenos</text>
                 </g>`
                 // an azul anterior para pasar la interpretación numérica con puntuación de español 
 
