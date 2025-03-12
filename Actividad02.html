@@ -16,12 +16,13 @@
     </head>
     <body>
         <header>
-            <h1>Tufte refers to data-ink as the non-erasable ink used for the presentation of data</h1>
+            <h1>Aumento del número de emigrantes en Chile </h1>
+            
         </header>
         <main>
             <article>
-                <h2>Evolución de la población en la Región Metropolitana Chilena</h2>
-                <p>Con una <a href="https://datavizcatalogue.com/ES/metodos/grafica_de_linea.html" target="_blank">gráfica de línea</a></p>
+                <h2>Fuente: Expansion, datosmacro</h2>
+                <p> <a href="https://datosmacro.expansion.com/demografia/migracion/emigracion/chile" target="_blank">sitio web</a></p>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 210">
                         <g transform="translate(0,195) scale(1,-1)" id="lineas"><!--aquí dentro va la polyline--></g>
@@ -47,9 +48,10 @@
             // la colocarle comillas "" a los números se convierten en números escritos
 
             const lineal = {
-                censos: [1820, 1854, 1865, 1888, 1920, 1940, 1952, 1960, 1982, 1992, 2002, 2012],
-                censados: [46000, 69018, 115337, 256000, 507296, 952075, 1350409, 1907378, 3899619, 4729118, 5428590, 7057491],
+                censos: [1990, 1995, 2000, 2005, 2010, 2015, 2020],
+                censados: [493026, 499207, 511997, 541745, 571842, 618015, 643800],
             };
+
 
             const graficaLineas = document.querySelector("#lineas");
 
@@ -61,7 +63,7 @@
             //para las cordenadas, se toman los números anteriostes y se 'transforman' para ajustarse a la viewbox definida al inicio
 
             lineal.censados.forEach((d, i) => {
-                coordenadas += ((i*50)+7) + "," + Math.round(d*0.000025) + " ";
+                coordenadas += ((i*50)+7) + "," + Math.round(d*0.0005) + " ";
                 momentos += `<text x="${i*50}" y="205" font-size="6">${lineal.censos[i]}</text> `;
 
             })
@@ -97,6 +99,8 @@
                     <text x="3" y="7" fill="white" font-size="5">${d.region}</text>
                     <text x="${(d.numero/20000)+3}" y="7" font-size="6">${new Intl.NumberFormat("es-ES").format(d.numero)} habitantes</text>
                 </g>`
+                // an azul anterior para pasar la interpretación numérica con puntuación de español 
+
             });
         </script>
     </body>
