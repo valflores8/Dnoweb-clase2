@@ -44,6 +44,7 @@
             //PRIMERA GRÁFICA
 
             // Datos de https://es.wikipedia.org/wiki/Anexo:Crecimiento_poblacional_de_Santiago_de_Chile
+            // la colocarle comillas "" a los números se convierten en números escritos
 
             const lineal = {
                 censos: [1820, 1854, 1865, 1888, 1920, 1940, 1952, 1960, 1982, 1992, 2002, 2012],
@@ -57,6 +58,7 @@
             let momentos = ""
 
             // la manera de despliegue de las coordenadas del Eje Y nos exige un ajuste, que copiamos de https://stackoverflow.com/questions/39560206/change-0-0-from-svg
+            //para las cordenadas, se toman los números anteriostes y se 'transforman' para ajustarse a la viewbox definida al inicio
 
             lineal.censados.forEach((d, i) => {
                 coordenadas += ((i*50)+7) + "," + Math.round(d*0.000025) + " ";
