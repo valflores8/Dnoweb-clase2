@@ -16,23 +16,26 @@
     </head>
     <body>
         <header>
-            <h1>Aumento del número de emigrantes en Chile </h1>
+            <h1>Emigrantes de Chile desde 1990 </h1>
             
+
         </header>
         <main>
             <article>
-                <h2>Fuente: Expansion, datosmacro</h2>
-                <p> <a href="https://datosmacro.expansion.com/demografia/migracion/emigracion/chile" target="_blank">sitio web</a></p>
+
+                <h2>Aumento del número de emigrantes de Chile desde 10
+                </h2>
+                <p> Fuente: Expansion, datosmacro <a href="https://datosmacro.expansion.com/demografia/migracion/emigracion/chile" target="_blank">sitio web</a></p>
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 210">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 570 310">
                         <g transform="translate(0,195) scale(1,-1)" id="lineas"><!--aquí dentro va la polyline--></g>
                         <g id="years"><!--aquí dentro van los textos con los años--></g>
                     </svg>
                 </div>
             </article>
             <article>
-                <h2>Población en las distintas regiones de Chile</h2>
-                <p>Con una <a href="https://datavizcatalogue.com/ES/metodos/graficos_de_barras.html" target="_blank">gráfica de barras</a></p>
+                <h2>Principales destinos de los emigrantes chilenos</h2>
+                <p>fuente:<a href="https://datosmacro.expansion.com/demografia/migracion/emigracion/chile" target="_blank">datosmacro.expansion.com</a></p>
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 100" id="barras"><!--aquí dentro van los grupos con rectangulo y textos--></svg>
                 </div> 
@@ -63,8 +66,8 @@
             //para las cordenadas, se toman los números anteriostes y se 'transforman' para ajustarse a la viewbox definida al inicio
 
             lineal.censados.forEach((d, i) => {
-                coordenadas += ((i*50)+7) + "," + Math.round(d*0.0001) + " ";
-                momentos += `<text x="${i*50}" y="205" font-size="6">${lineal.censos[i]}</text> `;
+                coordenadas += ((i*88)+7) + "," + (d*0.0015-820) + " ";
+                momentos += `<text x="${i*88}" y="305" font-size="6">${lineal.censos[i]}</text> `;
 
             })
 
@@ -82,22 +85,22 @@
             // Datos de https://es.wikipedia.org/wiki/Anexo:Regiones_de_Chile_por_poblaci%C3%B3n
 
             const barras = [
-                    {region:"Metropolitana", numero:8420729},
-                    {region:"Valparaíso", numero:2010849},
-                    {region:"Biobío", numero:1681225},
-                    {region:"Maule", numero:1171982 },
-                    {region:"Araucania", numero:1032064 },
-                    {region:"O'Higgins", numero:1025586},
-                    {region:"Demás regiones", numero:4723998}
+                    {region:"Argentina", numero:215198},
+                    {region:"Estados Unidos", numero:89714},
+                    {region:"España", numero:61798},
+                    {region:"Australia", numero:34316 },
+                    {region:"Canadá", numero:28757 },
+                    {region:"Suecia", numero:28709},
+                    {region:"Brasil", numero:19596}
                 ]
 
             const graficaBarras = document.querySelector("#barras");
 
             barras.forEach((d, i) => {
                 graficaBarras.innerHTML += `<g transform="translate(0,${i*15})">
-                    <rect x="0" y="0" width="${d.numero/20000}" height="10" />
+                    <rect x="0" y="0" width="${d.numero/500}" height="10" />
                     <text x="3" y="7" fill="white" font-size="5">${d.region}</text>
-                    <text x="${(d.numero/20000)+3}" y="7" font-size="6">${new Intl.NumberFormat("es-ES").format(d.numero)} habitantes</text>
+                    <text x="${(d.numero/500)+3}" y="7" font-size="6">${new Intl.NumberFormat("es-ES").format(d.numero)} emigrantes</text>
                 </g>`
                 // an azul anterior para pasar la interpretación numérica con puntuación de español 
 
