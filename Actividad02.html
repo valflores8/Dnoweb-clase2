@@ -63,7 +63,7 @@
             //para las cordenadas, se toman los números anteriostes y se 'transforman' para ajustarse a la viewbox definida al inicio
 
             lineal.censados.forEach((d, i) => {
-                coordenadas += ((i*50)+7) + "," + Math.round(d*0.005) + " ";
+                coordenadas += ((i*50)+7) + "," + Math.round(d*0.0005) + " ";
                 momentos += `<text x="${i*50}" y="205" font-size="6">${lineal.censos[i]}</text> `;
 
             })
