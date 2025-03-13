@@ -117,9 +117,9 @@
 
             barras.forEach((d, i) => {
                 graficaBarras.innerHTML += `<g transform="translate(0,${i*25})">
-                    <rect x="0" y="0" width="${d.numero/500}" height="20" />
+                    <rect x="0" y="0" width="${d.numero/600}" height="20" />
                     <text x="3" y="12" fill="#e6c9ea" font-size="8" font-weight="bold" >${d.region}</text>
-                    <text x="${(d.numero/500)+3}" y="13" fill="#1b2854"  font-size="9" font-weight="bold">${new Intl.NumberFormat("es-ES").format(d.numero)} emigrantes chilenos</text>
+                    <text x="${(d.numero/600)+3}" y="13" fill="#1b2854"  font-size="9" font-weight="bold">${new Intl.NumberFormat("es-ES").format(d.numero)} emigrantes chilenos</text>
                 </g>`
                 // an azul anterior para pasar la interpretación numérica con puntuación de español 
 
